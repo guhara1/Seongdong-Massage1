@@ -125,16 +125,16 @@ _BODY = f"""
 <h2>대표동별 방문 가능 지역 안내</h2>
 <p>대표동은 왕십리동, 마장동, 사근동, 행당동, 응봉동, 금호동, 옥수동, 성수동, 송정동, 용답동으로 구성합니다. 왕십리도선동·왕십리제2동은 왕십리동에서, 행당제1·2동은 행당동에서, 금호1가~4가동은 금호동에서, 성수1·2가의 행정동은 성수동에서 세부 생활권으로 통합 안내합니다. 거주하시거나 머무시는 동을 아래에서 선택해 주세요.</p>
 <ul class="card-grid">
-<li><a href="/seoul/seongdong/wangsimni-dong-chuljangmassage/">왕십리동</a></li>
-<li><a href="/seoul/seongdong/seongsu-dong-chuljangmassage/">성수동</a></li>
-<li><a href="/seoul/seongdong/geumho-dong-chuljangmassage/">금호동</a></li>
-<li><a href="/seoul/seongdong/oksu-dong-chuljangmassage/">옥수동</a></li>
-<li><a href="/seoul/seongdong/haengdang-dong-chuljangmassage/">행당동</a></li>
-<li><a href="/seoul/seongdong/majang-dong-chuljangmassage/">마장동</a></li>
-<li><a href="/seoul/seongdong/sageun-dong-chuljangmassage/">사근동</a></li>
-<li><a href="/seoul/seongdong/eungbong-dong-chuljangmassage/">응봉동</a></li>
-<li><a href="/seoul/seongdong/songjeong-dong-chuljangmassage/">송정동</a></li>
-<li><a href="/seoul/seongdong/yongdap-dong-chuljangmassage/">용답동</a></li>
+<li><a href="/seoul/seongdong/wangsimni-dong-chuljangmassage/">왕십리동 출장마사지</a></li>
+<li><a href="/seoul/seongdong/seongsu-dong-chuljangmassage/">성수동 홈타이</a></li>
+<li><a href="/seoul/seongdong/geumho-dong-chuljangmassage/">금호동 홈타이</a></li>
+<li><a href="/seoul/seongdong/oksu-dong-chuljangmassage/">옥수동 홈타이</a></li>
+<li><a href="/seoul/seongdong/haengdang-dong-chuljangmassage/">행당동 출장마사지</a></li>
+<li><a href="/seoul/seongdong/majang-dong-chuljangmassage/">마장동 출장마사지</a></li>
+<li><a href="/seoul/seongdong/sageun-dong-chuljangmassage/">사근동 출장마사지</a></li>
+<li><a href="/seoul/seongdong/eungbong-dong-chuljangmassage/">응봉동 출장마사지</a></li>
+<li><a href="/seoul/seongdong/songjeong-dong-chuljangmassage/">송정동 출장마사지</a></li>
+<li><a href="/seoul/seongdong/yongdap-dong-chuljangmassage/">용답동 출장마사지</a></li>
 </ul>
 <p>성동구 전체 구조는 <a href="/seoul/seongdong/">지역별 안내</a>에서 한눈에 확인하실 수 있습니다.</p>
 </section>
@@ -143,20 +143,20 @@ _BODY = f"""
 <h2>왕십리역·성수역·서울숲역·옥수역 역세권 안내</h2>
 <p>역을 기준으로 위치를 설명하는 것이 익숙하시다면 역세권 안내를 참고하세요. 성동구를 지나는 2호선·5호선·경의중앙선·분당선·우이신설선 주요 역을 역마다 한 페이지씩 안내합니다. 왕십리역, 성수역, 옥수역, 금호역, 서울숲역처럼 노선이 여러 개인 역도 노선별로 쪼개지 않고 역명 기준 한 페이지로만 운영하며, 본문에서 환승 특징과 인접 생활권을 설명합니다.</p>
 <ul class="card-grid">
-<li><a href="/seoul/seongdong/wangsimni-station-chuljangmassage/">왕십리역</a></li>
-<li><a href="/seoul/seongdong/sangwangsimni-station-chuljangmassage/">상왕십리역</a></li>
-<li><a href="/seoul/seongdong/hanyang-univ-station-chuljangmassage/">한양대역</a></li>
-<li><a href="/seoul/seongdong/seongsu-station-chuljangmassage/">성수역</a></li>
-<li><a href="/seoul/seongdong/ttukseom-station-chuljangmassage/">뚝섬역</a></li>
-<li><a href="/seoul/seongdong/seoul-forest-station-chuljangmassage/">서울숲역</a></li>
-<li><a href="/seoul/seongdong/haengdang-station-chuljangmassage/">행당역</a></li>
-<li><a href="/seoul/seongdong/eungbong-station-chuljangmassage/">응봉역</a></li>
-<li><a href="/seoul/seongdong/geumho-station-chuljangmassage/">금호역</a></li>
-<li><a href="/seoul/seongdong/singeumho-station-chuljangmassage/">신금호역</a></li>
-<li><a href="/seoul/seongdong/oksu-station-chuljangmassage/">옥수역</a></li>
-<li><a href="/seoul/seongdong/majang-station-chuljangmassage/">마장역</a></li>
-<li><a href="/seoul/seongdong/sindap-station-chuljangmassage/">신답역</a></li>
-<li><a href="/seoul/seongdong/yongdap-station-chuljangmassage/">용답역</a></li>
+<li><a href="/seoul/seongdong/wangsimni-station-chuljangmassage/">왕십리역 출장마사지</a></li>
+<li><a href="/seoul/seongdong/sangwangsimni-station-chuljangmassage/">상왕십리역 출장마사지</a></li>
+<li><a href="/seoul/seongdong/hanyang-univ-station-chuljangmassage/">한양대역 출장마사지</a></li>
+<li><a href="/seoul/seongdong/seongsu-station-chuljangmassage/">성수역 홈타이</a></li>
+<li><a href="/seoul/seongdong/ttukseom-station-chuljangmassage/">뚝섬역 출장마사지</a></li>
+<li><a href="/seoul/seongdong/seoul-forest-station-chuljangmassage/">서울숲역 홈타이</a></li>
+<li><a href="/seoul/seongdong/haengdang-station-chuljangmassage/">행당역 출장마사지</a></li>
+<li><a href="/seoul/seongdong/eungbong-station-chuljangmassage/">응봉역 출장마사지</a></li>
+<li><a href="/seoul/seongdong/geumho-station-chuljangmassage/">금호역 출장마사지</a></li>
+<li><a href="/seoul/seongdong/singeumho-station-chuljangmassage/">신금호역 홈타이</a></li>
+<li><a href="/seoul/seongdong/oksu-station-chuljangmassage/">옥수역 홈타이</a></li>
+<li><a href="/seoul/seongdong/majang-station-chuljangmassage/">마장역 출장마사지</a></li>
+<li><a href="/seoul/seongdong/sindap-station-chuljangmassage/">신답역 출장마사지</a></li>
+<li><a href="/seoul/seongdong/yongdap-station-chuljangmassage/">용답역 출장마사지</a></li>
 </ul>
 <p>전체 역 목록은 <a href="/seoul/seongdong/stations/">역세권 안내</a>에서 확인하세요.</p>
 </section>
@@ -165,16 +165,16 @@ _BODY = f"""
 <h2>생활권·주요 거점별 안내</h2>
 <p>대표동·역세권과 별개로, 사람들이 실제로 묶어서 인식하는 생활권 단위 안내도 함께 제공합니다. 왕십리역 환승 생활권, 성수 카페거리, 서울숲·성수동1가, 뚝섬·성수 업무권, 금호·옥수 주거지, 행당·한양대처럼 이동 동선이 비슷한 권역을 정리했습니다.</p>
 <ul class="card-grid">
-<li><a href="/seoul/seongdong/wangsimni-transfer-area-chuljangmassage/">왕십리역 환승</a></li>
-<li><a href="/seoul/seongdong/seongsu-cafe-street-area-chuljangmassage/">성수 카페거리</a></li>
-<li><a href="/seoul/seongdong/seoul-forest-seongsu1ga-area-chuljangmassage/">서울숲·성수1가</a></li>
-<li><a href="/seoul/seongdong/ttukseom-seongsu-business-area-chuljangmassage/">뚝섬·성수 업무권</a></li>
-<li><a href="/seoul/seongdong/geumho-oksu-residential-area-chuljangmassage/">금호·옥수 주거지</a></li>
-<li><a href="/seoul/seongdong/haengdang-hanyang-univ-area-chuljangmassage/">행당·한양대</a></li>
-<li><a href="/seoul/seongdong/majang-market-area-chuljangmassage/">마장동 축산시장</a></li>
-<li><a href="/seoul/seongdong/eungbong-mountain-area-chuljangmassage/">응봉동·응봉산</a></li>
-<li><a href="/seoul/seongdong/yongdap-sindap-area-chuljangmassage/">용답동·신답역</a></li>
-<li><a href="/seoul/seongdong/songjeong-jungnangcheon-area-chuljangmassage/">송정·중랑천</a></li>
+<li><a href="/seoul/seongdong/wangsimni-transfer-area-chuljangmassage/">왕십리역 환승 생활권 출장마사지</a></li>
+<li><a href="/seoul/seongdong/seongsu-cafe-street-area-chuljangmassage/">성수 카페거리 홈타이</a></li>
+<li><a href="/seoul/seongdong/seoul-forest-seongsu1ga-area-chuljangmassage/">서울숲·성수동1가 출장마사지</a></li>
+<li><a href="/seoul/seongdong/ttukseom-seongsu-business-area-chuljangmassage/">뚝섬·성수 업무권 출장마사지</a></li>
+<li><a href="/seoul/seongdong/geumho-oksu-residential-area-chuljangmassage/">금호·옥수 주거지 홈타이</a></li>
+<li><a href="/seoul/seongdong/haengdang-hanyang-univ-area-chuljangmassage/">행당동·한양대 출장마사지</a></li>
+<li><a href="/seoul/seongdong/majang-market-area-chuljangmassage/">마장동 축산시장 출장마사지</a></li>
+<li><a href="/seoul/seongdong/eungbong-mountain-area-chuljangmassage/">응봉동·응봉산 출장마사지</a></li>
+<li><a href="/seoul/seongdong/yongdap-sindap-area-chuljangmassage/">용답동·신답역 출장마사지</a></li>
+<li><a href="/seoul/seongdong/songjeong-jungnangcheon-area-chuljangmassage/">송정동·중랑천 홈타이</a></li>
 </ul>
 </section>
 

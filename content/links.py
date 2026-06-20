@@ -22,6 +22,31 @@ LABELS = {
     "yongdap-sindap-area": "용답동·신답역", "songjeong-jungnangcheon-area": "송정동·중랑천",
 }
 
+# 롱테일 키워드 앵커 — 내부링크 앵커텍스트에 사용한다.
+# 출장마사지(주키워드) 약 70% + 홈타이(보조키워드) 약 30%로 섞어 과최적화를 피한다.
+LABELS_LONG = {
+    # 대표동
+    "wangsimni-dong": "왕십리동 출장마사지", "majang-dong": "마장동 출장마사지",
+    "sageun-dong": "사근동 출장마사지", "haengdang-dong": "행당동 출장마사지",
+    "eungbong-dong": "응봉동 출장마사지", "geumho-dong": "금호동 홈타이",
+    "oksu-dong": "옥수동 홈타이", "seongsu-dong": "성수동 홈타이",
+    "songjeong-dong": "송정동 출장마사지", "yongdap-dong": "용답동 출장마사지",
+    # 역세권
+    "wangsimni-station": "왕십리역 출장마사지", "sangwangsimni-station": "상왕십리역 출장마사지",
+    "hanyang-univ-station": "한양대역 출장마사지", "ttukseom-station": "뚝섬역 출장마사지",
+    "seongsu-station": "성수역 홈타이", "seoul-forest-station": "서울숲역 홈타이",
+    "majang-station": "마장역 출장마사지", "sindap-station": "신답역 출장마사지",
+    "yongdap-station": "용답역 출장마사지", "haengdang-station": "행당역 출장마사지",
+    "eungbong-station": "응봉역 출장마사지", "geumho-station": "금호역 출장마사지",
+    "singeumho-station": "신금호역 홈타이", "oksu-station": "옥수역 홈타이",
+    # 생활권
+    "wangsimni-transfer-area": "왕십리역 환승 생활권 출장마사지", "seongsu-cafe-street-area": "성수 카페거리 홈타이",
+    "seoul-forest-seongsu1ga-area": "서울숲·성수동1가 출장마사지", "ttukseom-seongsu-business-area": "뚝섬·성수 업무권 출장마사지",
+    "geumho-oksu-residential-area": "금호·옥수 주거지 홈타이", "haengdang-hanyang-univ-area": "행당동·한양대 출장마사지",
+    "majang-market-area": "마장동 축산시장 출장마사지", "eungbong-mountain-area": "응봉동·응봉산 출장마사지",
+    "yongdap-sindap-area": "용답동·신답역 출장마사지", "songjeong-jungnangcheon-area": "송정동·중랑천 홈타이",
+}
+
 # 페이지별 이웃(인접 생활권) 관련 링크 — 대표동·역·생활권을 섞어 5개씩 큐레이션
 RELATED = {
     # ── 대표동 ──
@@ -65,9 +90,9 @@ RELATED = {
 
 # 무결성 검사 — 잘못된 슬러그가 있으면 빌드 시 즉시 드러난다.
 for _s, _lst in RELATED.items():
-    assert _s in LABELS, f"unknown source slug: {_s}"
+    assert _s in LABELS and _s in LABELS_LONG, f"unknown source slug: {_s}"
     for _t in _lst:
-        assert _t in LABELS, f"unknown target slug: {_t} (in {_s})"
+        assert _t in LABELS_LONG, f"unknown target slug: {_t} (in {_s})"
 
 _HEADING = {
     "dong": "이웃 대표동·역세권 안내",
@@ -80,7 +105,7 @@ def related_block(slug, kind="dong"):
     """페이지에 붙는 '이웃 지역' 관련 링크 카드 블록."""
     items = RELATED.get(slug, [])
     lis = "".join(
-        f'<li><a href="/seoul/seongdong/{s}-chuljangmassage/">{LABELS[s]}</a></li>'
+        f'<li><a href="/seoul/seongdong/{s}-chuljangmassage/">{LABELS_LONG[s]}</a></li>'
         for s in items
     )
     heading = _HEADING.get(kind, _HEADING["dong"])
