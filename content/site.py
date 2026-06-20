@@ -1,6 +1,6 @@
 # 사이트 공통 설정
 # 배포 도메인 확정 후 BASE_URL 을 실제 도메인으로 변경하세요.
-BASE_URL = "https://www.seongdong-barogo.example.com"
+BASE_URL = "https://seongdong-massage1.pages.dev"
 
 BRAND = "바로GO"
 BRAND_MARK = "바로"          # 헤더 원형 마크 글자
