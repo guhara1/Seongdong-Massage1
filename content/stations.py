@@ -2,6 +2,7 @@
 # 환승역도 역명 기준 1개 URL만 만든다. 노선별·출구별 페이지는 만들지 않는다.
 from .site import PHONE, PHONE_DISPLAY
 from .pricing import PRICING
+from .links import related_block
 
 _CTA = f"""
 <section class="cta">
@@ -17,7 +18,7 @@ def _station(slug, name, title, desc, sections):
         "title": title,
         "desc": desc,
         "h1": f"{name} 인근 출장마사지 · 홈타이 안내",
-        "body": sections + PRICING + _CTA,
+        "body": sections + related_block(slug, "station") + PRICING + _CTA,
         "breadcrumb": [("역세권 안내", "/seoul/seongdong/stations/"), (name, None)],
     }
 

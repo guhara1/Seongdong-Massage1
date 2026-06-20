@@ -2,6 +2,7 @@
 # 대표동·역세권과 중복되지 않게 '이동 동선' 단위로 안내한다.
 from .site import PHONE, PHONE_DISPLAY
 from .pricing import PRICING
+from .links import related_block
 
 _CTA = f"""
 <section class="cta">
@@ -17,7 +18,7 @@ def _zone(slug, name, title, desc, sections):
         "title": title,
         "desc": desc,
         "h1": f"{name} 출장마사지 · 홈타이 안내",
-        "body": sections + PRICING + _CTA,
+        "body": sections + related_block(slug, "area") + PRICING + _CTA,
         "breadcrumb": [("생활권 안내", "/seoul/seongdong/areas/"), (name, None)],
     }
 

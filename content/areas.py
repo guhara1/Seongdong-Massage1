@@ -2,6 +2,7 @@
 # 번호로 나뉜 행정동(성수1가제1동, 금호2가동 등) 개별 페이지는 만들지 않는다.
 from .site import PHONE, PHONE_DISPLAY
 from .pricing import PRICING
+from .links import related_block
 
 _CTA = f"""
 <section class="cta">
@@ -17,7 +18,7 @@ def _dong(slug, name, title, desc, sections):
         "title": title,
         "desc": desc,
         "h1": f"{name} 출장마사지 · 홈타이 안내",
-        "body": sections + PRICING + _CTA,
+        "body": sections + related_block(slug, "dong") + PRICING + _CTA,
         "breadcrumb": [("지역별 안내", "/seoul/seongdong/"), (name, None)],
     }
 

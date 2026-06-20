@@ -290,7 +290,7 @@ def build() -> None:
     width = max(len(p) for p, _, _ in report)
     print(f"{'PATH'.ljust(width)}  CHARS  ROBOTS")
     for p, c, r in sorted(report):
-        flag = "" if (r == "noindex" or MIN_INDEX_CHARS <= c <= 2700) else "  WARN"
+        flag = "" if (r == "noindex" or MIN_INDEX_CHARS <= c <= 2800) else "  WARN"
         print(f"{p.ljust(width)}  {str(c).rjust(5)}  {r}{flag}")
     print(f"\n{len(report)} pages built, {len(sitemap_urls)} in sitemap.")
 
