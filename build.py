@@ -8,15 +8,17 @@ content/ 패키지의 페이지 정의를 읽어 정적 HTML을 생성한다.
   - sitemap.xml 에는 index 허용 페이지만 포함
   - 지역+역+테마 조합 경로는 생성 자체가 불가능한 구조
 """
+import datetime
 import html
 import os
 import re
 import sys
+from email.utils import format_datetime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from content import PAGES
-from content.site import (BASE_URL, BRAND, BRAND_MARK, NAV, PHONE,
+from content.site import (BASE_URL, BRAND, BRAND_MARK, INDEXNOW_KEY, NAV, PHONE,
                           PHONE_DISPLAY, REGION, REGION_FULL)
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -150,6 +152,7 @@ def render_page(page: dict) -> str:
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{BASE_URL.rstrip('/')}/assets/og-image.png">
+<link rel="alternate" type="application/rss+xml" title="{BRAND} 업데이트" href="{BASE_URL.rstrip('/')}/rss.xml">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -252,7 +255,10 @@ def render_page(page: dict) -> str:
 
 def build() -> None:
     report = []
-    sitemap_urls = []
+    indexed = []  # (url, title, desc)
+    base = BASE_URL.rstrip("/")
+    now = datetime.datetime.now(datetime.timezone.utc)
+    lastmod = now.date().isoformat()
 
     for page in PAGES:
         path = page["path"]  # "" 또는 "seoul/seongdong/.../" 형태
@@ -265,24 +271,63 @@ def build() -> None:
         chars = text_length(page["body"])
         noindex = page.get("noindex", False) or chars < MIN_INDEX_CHARS
         if not noindex:
-            sitemap_urls.append(BASE_URL.rstrip("/") + "/" + path)
+            indexed.append((base + "/" + path, page["title"], page["desc"]))
         report.append((path or "/", chars, "noindex" if noindex else "index"))
 
-    # sitemap.xml
-    urls = "\n".join(f"  <url><loc>{u}</loc></url>" for u in sitemap_urls)
+    # sitemap.xml — lastmod 포함 (색인 페이지만)
+    rows = []
+    for url, _t, _d in indexed:
+        prio = "1.0" if url == base + "/" else "0.8"
+        rows.append(
+            f"  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod>"
+            f"<changefreq>daily</changefreq><priority>{prio}</priority></url>"
+        )
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write(
             '<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-            f"{urls}\n</urlset>\n"
+            + "\n".join(rows) + "\n</urlset>\n"
         )
 
-    # robots.txt
+    # rss.xml — 색인 페이지 피드 (빙·일부 크롤러 발견용)
+    pub = format_datetime(now)
+    items = []
+    for url, title, desc in indexed:
+        items.append(
+            "    <item>"
+            f"<title>{html.escape(title)}</title>"
+            f"<link>{url}</link>"
+            f"<guid isPermaLink=\"true\">{url}</guid>"
+            f"<description>{html.escape(desc)}</description>"
+            f"<pubDate>{pub}</pubDate>"
+            "</item>"
+        )
+    with open(os.path.join(ROOT, "rss.xml"), "w", encoding="utf-8") as f:
+        f.write(
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+            "  <channel>\n"
+            f"    <title>{html.escape(BRAND)} — {REGION} 출장마사지·홈타이 안내</title>\n"
+            f"    <link>{base}/</link>\n"
+            f'    <atom:link href="{base}/rss.xml" rel="self" type="application/rss+xml"/>\n'
+            f"    <description>{REGION} 전지역 방문 출장마사지·홈타이 지역별 안내</description>\n"
+            "    <language>ko</language>\n"
+            f"    <lastBuildDate>{pub}</lastBuildDate>\n"
+            + "\n".join(items) + "\n"
+            "  </channel>\n</rss>\n"
+        )
+
+    # robots.txt — 사이트맵·RSS 위치 안내
     with open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8") as f:
         f.write(
             "User-agent: *\nAllow: /\n\n"
-            f"Sitemap: {BASE_URL.rstrip('/')}/sitemap.xml\n"
+            f"Sitemap: {base}/sitemap.xml\n"
+            f"Sitemap: {base}/rss.xml\n"
         )
+
+    # IndexNow 키 파일 — https://도메인/{KEY}.txt 로 노출되어야 통보가 인증된다.
+    with open(os.path.join(ROOT, f"{INDEXNOW_KEY}.txt"), "w", encoding="utf-8") as f:
+        f.write(INDEXNOW_KEY + "\n")
 
     # .nojekyll (GitHub Pages)
     open(os.path.join(ROOT, ".nojekyll"), "w").close()

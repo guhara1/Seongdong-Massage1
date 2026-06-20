@@ -49,8 +49,22 @@ python3 build.py
 - 본문 Pretendard, 디스플레이 헤딩 Noto Serif KR
 - 컴포넌트 오버레이: 히어로 격자 텍스처, 섹션 상단 골드 시닝, 카드 호버 글로우
 
+## 빠른 색인(인덱싱)
+
+빌드 시 자동 생성: `sitemap.xml`(lastmod 포함), `rss.xml`, `robots.txt`(사이트맵·RSS),
+`{INDEXNOW_KEY}.txt`(IndexNow 키 파일). 메인페이지에는 네이버 소유확인 메타 포함.
+
+- **빙·네이버·Yandex**: IndexNow로 즉시 통보 — `python3 tools/indexnow.py`
+  (특정 URL만: `python3 tools/indexnow.py https://도메인/경로/`)
+- **빌드+전체 통보 한 번에**: `./tools/publish.sh`
+- **구글**: IndexNow 미참여 → Search Console 사이트맵 제출 + URL 검사가 표준
+  (옵션 보조: `tools/google_index.py`)
+
+자세한 절차는 [`tools/README.md`](tools/README.md) 참고.
+
 ## 배포 전 해야 할 일
 
 1. `content/site.py`의 `BASE_URL`을 실제 도메인으로 변경
-2. `python3 build.py` 재실행 (canonical·sitemap·robots.txt에 반영됨)
-3. Google Search Console / 네이버 서치어드바이저에 `sitemap.xml` 제출
+2. `python3 build.py` 재실행 (canonical·sitemap·rss·robots·키파일에 반영됨)
+3. Google Search Console / 네이버 서치어드바이저에 `sitemap.xml`·`rss.xml` 제출
+4. 키 파일(`https://도메인/{INDEXNOW_KEY}.txt`)이 열리는지 확인 후 `python3 tools/indexnow.py` 1회 실행
