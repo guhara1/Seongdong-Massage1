@@ -2,6 +2,9 @@
 from .site import BASE_URL, BRAND, PHONE, PHONE_DISPLAY, REGION_FULL
 from .pricing import PRICING
 
+# 네이버 서치어드바이저 사이트 소유확인 (루트 메인페이지)
+_NAVER = '<meta name="naver-site-verification" content="fa2e95e8126651164aa2e31d93b8a7976a841212"/>\n'
+
 _JSONLD = f"""<script type="application/ld+json">
 {{
   "@context": "https://schema.org",
@@ -227,7 +230,7 @@ PAGE = {
     "desc": "성동구 출장마사지·홈타이 예약 전 왕십리, 성수, 옥수, 금호, 행당 생활권을 확인하세요.",
     "h1": "성동구 출장마사지 · 성동구 홈타이 지역별 예약 안내",
     "body": _BODY,
-    "extra_head": _JSONLD,
+    "extra_head": _NAVER + _JSONLD,
     "breadcrumb": [],
     "hero": _HERO,
 }
